@@ -12,6 +12,9 @@ public class ResponseMessage<T> {
     private String msg;
     private T clazz;
 
+    public final static ResponseMessage SUCCESS_MSG = new ResponseMessage().result(Boolean.TRUE).msg("操作成功");
+    public final static ResponseMessage ERROR_MSG = new ResponseMessage().result(Boolean.FALSE).msg("操作失败");
+
     public ResponseMessage<T> result(Boolean result) {
          this.result = result;
          return this;
