@@ -21,7 +21,7 @@ public class WarehouseCard {
     @ManyToOne
     private WarehousePosition position;  // 仓位
 
-    @OneToOne(mappedBy = "warehouseCard")
+    @OneToOne(cascade = {CascadeType.ALL})
     private Material material;
 
     private Integer quantity;

@@ -44,6 +44,7 @@ spring:
             hibernate.generate_statistics: true
         hibernate:
           ddl-auto: update
+        open-in-view: true
 server:
     port: 8080
 

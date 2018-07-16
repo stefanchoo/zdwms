@@ -1,5 +1,6 @@
 package com.zdmedtech.wms.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.zdmedtech.wms.domain.enumuration.MaterialCategory;
 
 import javax.persistence.*;
@@ -15,6 +16,8 @@ public class Material {
     @GeneratedValue
     private Long id;
     private String name;
+
+    @Column(unique = true)
     private String specification;
 
     @Enumerated(EnumType.STRING)
@@ -25,10 +28,11 @@ public class Material {
     private Integer maxQuantity;
     private Integer minQuantity;
     private String unit;
-    private Boolean outofstork;     // 低于最低库存
+    private Boolean outofstork = Boolean.FALSE;     // 低于最低库存
     private String supplier;
 
-    @OneToOne
+    @OneToOne(mappedBy = "material")
+    @JsonIgnore
     private WarehouseCard warehouseCard;
     private ZonedDateTime createTime = ZonedDateTime.now();
     private ZonedDateTime lastUpdateTime;
@@ -36,7 +40,7 @@ public class Material {
     @ManyToOne
     private User lastModifiedUser;
 
-    private Boolean outofdate;       // 过期不再使用
+    private Boolean outofdate = Boolean.FALSE;       // 过期不再使用
 
     public Long getId() {
         return id;
