@@ -16,13 +16,13 @@ public class AskOrder {
     @Id
     @GeneratedValue
     private Long id;
-    private String LLNumber;
+    private String LLDNumber;
     private String SRNumber;
 
     private ZonedDateTime createTime = ZonedDateTime.now();
 
     @Enumerated(EnumType.STRING)
-    private OrderStatus status;
+    private OrderStatus status = OrderStatus.WAIT;
 
     @ManyToOne
     private User asker;       // 申领人
@@ -30,7 +30,7 @@ public class AskOrder {
     @ManyToOne
     private User approver;    // 审批人
 
-    @OneToMany(fetch = FetchType.EAGER)
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private Set<AskItem> askItems = new HashSet<>();
 
     public Long getId() {
@@ -41,12 +41,12 @@ public class AskOrder {
         this.id = id;
     }
 
-    public String getLLNumber() {
-        return LLNumber;
+    public String getLLDNumber() {
+        return LLDNumber;
     }
 
-    public void setLLNumber(String LLNumber) {
-        this.LLNumber = LLNumber;
+    public void setLLDNumber(String LLDNumber) {
+        this.LLDNumber = LLDNumber;
     }
 
     public String getSRNumber() {

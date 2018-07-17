@@ -33,8 +33,8 @@ public class User {
     private Set<Department> departments = new HashSet<>();
 
     private String signature;
-    private ZonedDateTime lastLoginTime;
-    private ZonedDateTime createTime;
+    private ZonedDateTime lastLoginTime = ZonedDateTime.now();
+    private ZonedDateTime createTime = ZonedDateTime.now();
 
     private Boolean activated = Boolean.FALSE;       // 首次登录，修改密码激活
 

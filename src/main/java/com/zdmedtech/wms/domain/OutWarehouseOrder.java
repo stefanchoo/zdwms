@@ -15,7 +15,7 @@ public class OutWarehouseOrder {
     @Id
     @GeneratedValue
     private Long id;
-    private String CKNumber;
+    private String CKDNumber;
 
     @OneToOne
     private AskOrder askOrder;
@@ -36,12 +36,12 @@ public class OutWarehouseOrder {
         this.id = id;
     }
 
-    public String getCKNumber() {
-        return CKNumber;
+    public String getCKDNumber() {
+        return CKDNumber;
     }
 
-    public void setCKNumber(String CKNumber) {
-        this.CKNumber = CKNumber;
+    public void setCKDNumber(String CKDNumber) {
+        this.CKDNumber = CKDNumber;
     }
 
     public AskOrder getAskOrder() {

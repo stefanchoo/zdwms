@@ -13,10 +13,11 @@ public class InOutStockRecord {
     @GeneratedValue
     private Long id;
 
-    private Boolean stockIn;    // 入库
-    private Boolean stockOut;   // 出库
-    private String batchNumber; // 批号
-    private Integer quantity;   // 改变数量
+    private Boolean stockIn;      // 入库
+    private Boolean stockOut;     // 出库
+    private String batchNumber;   // 批号
+    private Integer quantity;     // 改变数量
+    private Integer leftQuantity; // 该批号剩余数量
     private ZonedDateTime createTime = ZonedDateTime.now();
 
     @ManyToOne
@@ -87,5 +88,13 @@ public class InOutStockRecord {
 
     public void setWarehouseCard(WarehouseCard warehouseCard) {
         this.warehouseCard = warehouseCard;
+    }
+
+    public Integer getLeftQuantity() {
+        return leftQuantity;
+    }
+
+    public void setLeftQuantity(Integer leftQuantity) {
+        this.leftQuantity = leftQuantity;
     }
 }

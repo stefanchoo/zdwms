@@ -81,7 +81,9 @@ public class DepartmentResource {
     @GetMapping("/one/{id}")
     public ResponseEntity<Department> getOneDepartment(@PathVariable Long id) {
         log.info("Rest request to get one department by id {}", id);
-        return departmentRepository.findById(id).map(ResponseEntity::ok).orElse(null);
+        return departmentRepository.findById(id)
+                .map(ResponseEntity::ok)
+                .orElse(ResponseEntity.notFound().build());
     }
 
     @DeleteMapping("/delete/{id}")

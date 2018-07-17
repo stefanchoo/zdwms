@@ -25,9 +25,10 @@ public class CheckOrder {
     private User askChecker;
     private ZonedDateTime createTime = ZonedDateTime.now();
 
-    @OneToMany(fetch = FetchType.EAGER)
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private Set<CheckRecord> checkRecords = new HashSet<>();
 
+    @Enumerated(EnumType.STRING)
     private OrderStatus status = OrderStatus.WAIT;
 
     public Long getId() {

@@ -18,6 +18,7 @@ public class AskItem {
 
     @ManyToOne
     private Material material;
+
     private Integer askQuantity;
     private Integer takeQuantity;
     private String batchNumber;

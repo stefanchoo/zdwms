@@ -17,13 +17,13 @@ public class InWarehouseOrder {
     @Id
     @GeneratedValue
     private Long id;
-    private String RKNumber;
+    private String RKDNumber;
 
     @OneToOne
     private CheckOrder checkOrder;
 
     private String note;
-    private ZonedDateTime createTime;
+    private ZonedDateTime createTime = ZonedDateTime.now();
 
     @ManyToOne
     private User warehouseKeeper;
@@ -39,12 +39,12 @@ public class InWarehouseOrder {
         this.id = id;
     }
 
-    public String getRKNumber() {
-        return RKNumber;
+    public String getRKDNumber() {
+        return RKDNumber;
     }
 
-    public void setRKNumber(String RKNumber) {
-        this.RKNumber = RKNumber;
+    public void setRKDNumber(String RKDNumber) {
+        this.RKDNumber = RKDNumber;
     }
 
     public CheckOrder getCheckOrder() {
@@ -69,6 +69,14 @@ public class InWarehouseOrder {
 
     public void setCreateTime(ZonedDateTime createTime) {
         this.createTime = createTime;
+    }
+
+    public OrderStatus getStatus() {
+        return status;
+    }
+
+    public void setStatus(OrderStatus status) {
+        this.status = status;
     }
 
     public User getWarehouseKeeper() {

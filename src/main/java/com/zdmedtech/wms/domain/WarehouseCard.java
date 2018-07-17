@@ -21,13 +21,13 @@ public class WarehouseCard {
     @ManyToOne
     private WarehousePosition position;  // 仓位
 
-    @OneToOne(cascade = {CascadeType.ALL})
+    @OneToOne(cascade = CascadeType.ALL)
     private Material material;
 
     private Integer quantity;
     private ZonedDateTime createTime = ZonedDateTime.now();
 
-    @OneToMany(fetch = FetchType.EAGER)
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private Set<InOutStockRecord> inOutStockRecords = new HashSet<>();
 
     public Long getId() {

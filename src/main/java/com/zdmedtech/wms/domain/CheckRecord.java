@@ -18,7 +18,7 @@ public class CheckRecord {
     private Material material;
     private Integer quantity;
     private String batchNumber;
-    private Boolean qualified;
+    private Boolean qualified = Boolean.FALSE;
     @ManyToOne
     private User checker;
     private String IQCNumber;

@@ -1,5 +1,7 @@
 package com.zdmedtech.wms.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.time.ZonedDateTime;
 import java.util.HashSet;
@@ -17,11 +19,13 @@ public class WarehousePosition {
     private Long id;
     private String rack;                 //  货架  H01
     private String layer;                //  层数  A02
+    @Column(unique = true)
     private String position;             //  仓位  H01A0203
 
     private ZonedDateTime createTime = ZonedDateTime.now();
 
     @OneToMany(mappedBy = "position")
+    @JsonIgnore
     private Set<WarehouseCard> warehouseCards = new HashSet<>();
 
     @ManyToOne

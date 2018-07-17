@@ -69,7 +69,8 @@ public class UserResource {
     public ResponseEntity<User> getOneUser(@PathVariable Long id) {
         log.info("Rest request to get one user by id {}", id);
         return userRepository.findById(id)
-                .map(ResponseEntity::ok).orElse(null);
+                .map(ResponseEntity::ok)
+                .orElse(ResponseEntity.notFound().build());
     }
 
     @DeleteMapping("/delete/{id}")

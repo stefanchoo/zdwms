@@ -35,8 +35,6 @@ public class AccountGoodsCardService {
     }
 
     public Material createOneMaterial(Material material) {
-        material.setCreateTime(ZonedDateTime.now());
-        material.setLastUpdateTime(ZonedDateTime.now());
         WarehouseCard warehouseCard = new WarehouseCard();
         warehouseCard.setMaterial(material);
         warehouseCard.setCreateTime(ZonedDateTime.now());
@@ -44,4 +42,5 @@ public class AccountGoodsCardService {
         WarehouseCard card = warehouseCardRepository.save(warehouseCard);
         return card.getMaterial();
     }
+
 }
